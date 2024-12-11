@@ -34,3 +34,8 @@ Os arquivos de entrada devem estar no formato especificado e conter:
 
 Certifique-se de revisar os exemplos incluídos neste repositório para entender melhor o formato exigido.
 
+### Referências
+O trabalho acima foi elaborado com estudo aprofundado no Simplex.
+1. Também foi utilizado como base de lógica para as funções principais no codigo o seguinte repositorio: "https://github.com/leoreisdias/metodoSimplex-C"
+2. Foi utilizado Slides providos pelo Professor Thiago(https://github.com/thborges) da disciplina Pesquisa Operacional onde havia partes de processamento do método Simplex
+
