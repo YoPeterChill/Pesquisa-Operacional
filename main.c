@@ -338,6 +338,34 @@ int main(int argc, char *argv[]) {
 
   fclose(file);
 
+if (problem.action == MAX) {
+    printf("Max:\nz = ");
+  } else {
+    printf("Min:\nz = ");
+  }
+
+  for (int i = 0; i < problem.obj_func.num_vars; i++) {
+    if (problem.obj_func.vars[i].coef * -1 > 0) {
+      if (i > 0) printf(" + ");
+    } else {
+      printf(" - ");
+    }
+    printf("%.*f*%s", 2, fabs(problem.obj_func.vars[i].coef * -1), problem.obj_func.vars[i].name);
+  }
+  printf("\n\nSujeito a:\n");
+
+  for (int i = 0; i < problem.num_consts; i++) {
+    for (int j = 0; j < problem.consts[i].num_vars; j++) {
+      if (problem.consts[i].vars[j].coef > 0) {
+        if (j > 0) printf(" + ");
+      } else {
+        printf(" - ");
+      }
+      printf("%.*f*%s", 2, fabs(problem.consts[i].vars[j].coef), problem.consts[i].vars[j].name);
+    }
+    printf(" %s %.*f\n", problem.consts[i].op, 2, problem.consts[i].value);
+  }
+
   tableau.rows = problem.num_consts; 
   tableau.cols = problem.obj_func.num_vars + 1; 
   tableau.action = problem.action;
